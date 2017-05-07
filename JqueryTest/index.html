@@ -40,21 +40,51 @@
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" 
             crossorigin="anonymous"></script>
  
-</head>
-<body>
-
-    <h1 id="a">test</h1>
-
-    <div id="slider"></div>
-
+<!--    https://jqueryui.com/slider/#steps  -->
     <script>
         $(function () {
-            $("#slider").slider();
+            $("#slider").slider({
+                value: 0,
+                min: 0,
+                max: 100,
+                step: 10,
+                slide: function (event, ui) {
+                    $("#amount").val(ui.value + "%");
+                    tooltip.text(ui.value);
+                }
+
+            });
+            $("#amount").val($("#slider").slider("value") + "%");
+
         });
     </script>
 
+</head>
+<body>
+
+    <h1 id="a">Slider po 10% s varováním</h1>
+
+    <div id="slider-bg">
+        
+        <div id="tooltip">
+            <p>
+                Pro udělení slevy nad 50%
+                je vyžadován souhlas
+                Lukáše Palduse
+                (<a href="mailto:lukas.paldus@ininvest.cz">lukas.paldus@ininvest.cz</a>).
+            </p>
+        </div>
+
+        <p class="sleva">Sleva na vstupním poplatku</p>
+        
+        <div id="slider"></div>
+
+        <p id="percent">
+            <input type="text" id="amount" readonly">
+            <label for="amount">pro jednorázovou platbu</label>
+        </p>
+    
+    </div>
 
 </body>
-
-
 </html>
