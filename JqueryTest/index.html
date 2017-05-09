@@ -50,7 +50,7 @@
                 step: 10,
                 slide: function (event, ui) {
                     $("#amount").val(ui.value + "%");
-                    tooltip.text(ui.value);
+                    //tooltip.text(ui.value);
                 }
 
             });
@@ -76,9 +76,9 @@
         </div>
 
         <p class="sleva">Sleva na vstupním poplatku</p>
-        
-        <div id="slider"></div>
-
+        <div id="slider-container">
+            <div id="slider"></div>
+        </div>
         <p id="percent">
             <input type="text" id="amount" readonly">
             <label for="amount">pro jednorázovou platbu</label>
